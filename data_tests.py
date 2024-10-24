@@ -1,6 +1,7 @@
 import data
 import unittest
-
+import data
+from data import Time, Point
 
 class TestCases(unittest.TestCase):
     #### Time tests
@@ -19,9 +20,23 @@ class TestCases(unittest.TestCase):
 
 
     #### Add tests for Time.__eq__
+    def test_equal_times(self):
+        time1 = Time(12, 30, 45)
+        time2 = Time(12, 30, 45)
+        self.assertEqual(time1, time2)
+    def test_not_equal_hours(self):
+        time1 = Time(12, 30, 45)
+        time2 = Time(11, 30, 45)
+        self.assertNotEqual(time1, time2)
 
     #### Add tests for Time.__repr__
+    def test_repr(self):
+        time1 = Time(12, 30, 45)
+        self.assertEqual(repr(time1), "Time(12, 30, 45)")
 
+    def test_repr_zero_time(self):
+        time1 = Time(0, 0, 0)
+        self.assertEqual(repr(time1), "Time(0, 0, 0)")
 
 
 
