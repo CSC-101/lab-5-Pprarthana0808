@@ -15,7 +15,9 @@ class Time:
 
 
     # Provide a developer-friendly string representation of the object.
-    # input: Time for which a string representation is desired. 
+    # input: Time for which a string representation is desired.
+    def __repr__(self) -> str:
+        return f"Time({self.hour}, {self.minute}, {self.second})"
     # output: string representation
 
 
@@ -23,6 +25,12 @@ class Time:
     # input: Time against which to compare
     # input: Another value to compare to the Time
     # output: boolean indicating equality
+    def __eq__(self, other: Any) -> bool:
+        return (other is self or
+                isinstance(other, Time) and
+                self.hour == other.hour and
+                self.minute == other.minute and
+                self.second == other.second)
 
 
 
